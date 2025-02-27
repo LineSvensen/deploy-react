@@ -11,12 +11,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/test",
-    element: <h1>test path</h1>,
+    element: <h1>Test Page</h1>,
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    {/* ✅ Wrap the app inside RouterProvider */}
+    <RouterProvider router={router} />
   </StrictMode>
 );
