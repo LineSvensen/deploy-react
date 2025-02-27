@@ -1,14 +1,20 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function App() {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    async function getData() {
+      const res = await fetch("https://v2.api.noroff.dev/auction/listings");
+      const data = await res.json();
+      console.log(data);
+    }
+    getData();
+  }, []);
   return (
     <>
-      <h1>I have successfully deployed with react !!:) </h1>
       <Link to={"/test"}>To test page</Link>
-      <a href="/test">anchor to test page</a>
     </>
   );
 }
